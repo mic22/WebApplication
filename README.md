@@ -1,12 +1,13 @@
-# Welcome to ASP.NET 5 Preview
+# WebApplication
 
-We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
+## Basic usage 
+Run docker container from provided iamge `docker run -dt -v $(pwd):/app -5000:5000 --name test mic22/aspnet:dnx`. Absolute path is required by docker to mount external volume so `$(pwd)` usage is handy here if you are running form the project directory itself.
+To start Dnx.Watcher option run `mic22/aspnet:dnx-watch` image from repository.
+You can simply attach to running container shell by executing `docker -it exec test bash` where `test` is nickname of the container and `bash` the installed shell of your choice.
+In order to meet all of the dependencies you gotta execute `dnu restore` command first.
+Then use `dnx kestrel` in the first case or `dnx-watch kestrel` in the other one to build project and start asp.net server.
+Front page of your project is now accessible by http://localhost:5000/
 
-ASP.NET 5 has been rearchitected to make it **lean** and **composable**. It's fully **open source** and available on [GitHub](http://go.microsoft.com/fwlink/?LinkID=517854).
-Your new project automatically takes advantage of modern client-side utilities like [Bower](http://go.microsoft.com/fwlink/?LinkId=518004) and [npm](http://go.microsoft.com/fwlink/?LinkId=518005) (to add client-side libraries) and [Gulp](http://go.microsoft.com/fwlink/?LinkId=518007) (for client-side build and automation tasks).
-
-We hope you enjoy the new capabilities in ASP.NET 5 and Visual Studio 2015.
-The ASP.NET Team
 
 ### You've created a new ASP.NET 5 project. [Learn what's new](http://go.microsoft.com/fwlink/?LinkId=518016)
 
