@@ -1,6 +1,4 @@
-FROM microsoft/aspnet:1.0.0-beta8
+FROM mic22/aspnet:latest
 
-RUN apt-get install libsqlite3-0
-WORKDIR /app
-
-EXPOSE 5000
+RUN dnu commands install Microsoft.Dnx.Watcher
+RUN echo "alias dnx-watch='/root/.dnx/bin/dnx-watch'" >> /root/.bashrc
