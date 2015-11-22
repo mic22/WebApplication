@@ -5,13 +5,12 @@ TODO opisac jak generowac projekt yeomanem
 Docker repository [https://hub.docker.com/r/mic22/aspnet/tags/](https://hub.docker.com/r/mic22/aspnet/tags/)
 
 ## Basic usage 
-Run docker container from provided iamge `docker run -dt -v $(pwd):/app -5000:5000 --name test mic22/aspnet:dnx`. Absolute path is required by docker to mount external volume so `$(pwd)` usage is handy here if you are running form the project directory itself.
+Run docker container from provided iamge `docker run -dt -v $(pwd):/app -p 5000:5000 --name test mic22/aspnet:dnx`. Absolute path is required by docker to mount external volume so `$(pwd)` usage is handy here if you are running form the project directory itself.
 To start Dnx.Watcher option run `mic22/aspnet:dnx-watch` image from repository.
-You can simply attach to running container shell by executing `docker -it exec test bash` where `test` is nickname of the container and `bash` the installed shell of your choice.
+You can simply attach to running container shell by executing `docker exec -it test bash` where `test` is nickname of the container and `bash` the installed shell of your choice.
 In order to meet all of the dependencies you gotta execute `dnu restore` command first.
 Then use `dnx kestrel` in the first case or `dnx-watch kestrel` in the other one to build project and start asp.net server.
 Front page of your project is now accessible by [http://localhost:5000/](http://localhost:5000/)
-
 
 ### You've created a new ASP.NET 5 project. [Learn what's new](http://go.microsoft.com/fwlink/?LinkId=518016)
 
